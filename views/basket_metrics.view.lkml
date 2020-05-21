@@ -1,7 +1,7 @@
 view: basket_metrics {
   sql_table_name: public.basket_metrics ;;
 
-  dimension: availability {
+  measure: availability {
     type: number
     sql: ${TABLE}."availability" ;;
   }
@@ -16,7 +16,7 @@ view: basket_metrics {
     sql: ${TABLE}."iso" ;;
   }
 
-  dimension: price {
+  measure: price {
     type: string
     sql: ${TABLE}."price" ;;
   }
