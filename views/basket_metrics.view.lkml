@@ -6,7 +6,7 @@ view: basket_metrics {
     sql: ${TABLE}."availability" ;;
   }
 
-  dimension: basket_item {
+  dimension: item {
     type: string
     sql: ${TABLE}."basket_item" ;;
   }
