@@ -2,7 +2,8 @@ view: basket_metrics {
   sql_table_name: public.basket_metrics ;;
 
   measure: availability {
-    type: number
+    type: average
+    label: "Average Availability"
     sql: ${TABLE}."availability" ;;
   }
 
@@ -17,8 +18,9 @@ view: basket_metrics {
   }
 
   measure: price {
-    type: string
-    sql: ${TABLE}."price" ;;
+    type: average
+    label: "Average Price"
+    sql: ${TABLE}."price"::numeric ;;
   }
 
   dimension_group: source_data_collected {
