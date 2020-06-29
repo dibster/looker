@@ -12,7 +12,18 @@ include: "/views/**/*.view"
 
 # explore: basket_item {}
 
-explore: basket_metrics {}
+# explore: view_exports{}
+
+# explore: view_metrics {}
+
+explore: view_metrics {
+  view_label: "Metrics"
+  label: "Country Metrics"
+  join: view_exports {
+    relationship: one_to_one
+    sql_on:  ${view_exports.area} = ${view_metrics.country} ;;
+  }
+}
 
 # explore: country {}
 #

@@ -1,18 +1,18 @@
 view: view_metrics {
   sql_table_name: public.view_metrics ;;
 
-  dimension: airports {
-    type: number
+  measure: airports {
+    type: sum
     sql: ${TABLE}."airports" ;;
   }
 
-  dimension: borders {
-    type: number
+  measure: borders {
+    type: sum
     sql: ${TABLE}."borders" ;;
   }
 
-  dimension: conflict {
-    type: number
+  measure: conflict {
+    type: sum
     sql: ${TABLE}."conflict" ;;
   }
 
@@ -22,18 +22,18 @@ view: view_metrics {
     sql: ${TABLE}."Country" ;;
   }
 
-  dimension: employment_rate {
-    type: number
+  measure: employment_rate {
+    type: sum
     sql: ${TABLE}."employment_rate" ;;
   }
 
-  dimension: infection_rate {
-    type: number
+  measure: infection_rate {
+    type: sum
     sql: ${TABLE}."infection_rate" ;;
   }
 
-  dimension: internal_transportation {
-    type: number
+  measure: internal_transportation {
+    type: sum
     sql: ${TABLE}."internal_transportation" ;;
   }
 
@@ -43,13 +43,19 @@ view: view_metrics {
   }
 
   dimension: latitude {
-    type: number
+    type: string
     sql: ${TABLE}."latitude" ;;
   }
 
   dimension: longitude {
-    type: number
+    type: string
     sql: ${TABLE}."longitude" ;;
+  }
+
+  dimension: location {
+    type: location
+    sql_latitude:${TABLE}.latitude;;
+    sql_longitude: ${TABLE}.longitude;;
   }
 
   dimension: other_metrics {
@@ -57,13 +63,14 @@ view: view_metrics {
     sql: ${TABLE}."other_metrics" ;;
   }
 
-  dimension: ports {
-    type: number
+  measure: ports {
+    type: sum
     sql: ${TABLE}."ports" ;;
   }
 
-  dimension: state {
-    type: number
+  measure: state {
+    label: "Overall State"
+    type: sum
     sql: ${TABLE}."state" ;;
   }
 
